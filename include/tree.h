@@ -3,7 +3,7 @@
 #define INCLUDE_TREE_H_
 #include <iostream>
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
 class Tree {
  private:
     struct Node {
