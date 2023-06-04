@@ -32,8 +32,9 @@ class Tree {
     std::vector<char> permutation(Node* root, std::vector<char>* character) {
         for (int i = 0; i < root->pointers.size(); i++) {
             character->push_back(root->pointers[i]->value);
-            permutation(root->pointers[i], character);
-            if (root->pointers[i]->pointers.empty()) return *character;
+            if (root->pointers[i]->pointers.empty()) {
+             return *character;
+            }
             permutation(root->pointers[i], character);
             if (character->size() != 1) {
                 vectV.push_back(*character);
