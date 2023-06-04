@@ -30,6 +30,9 @@ class Tree {
         for (int i = 0; i < root->pointers.size(); i++) {
             character->push_back(root->pointers[i]->value);
             permutation(root->pointers[i], character);
+            if (character->size() != 1) {
+                vectV.push_back(*character);
+            }
             for (int j = 0; j < character->size(); j++) {
                 character->pop_back();
             }
