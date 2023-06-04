@@ -16,6 +16,9 @@ class Tree {
         if (root == nullptr) {
             root = new Node;
         }
+        if (help.empty()) {
+            return root;
+        }
         for (int i = 0; i < help.size(); i++) {
             Node* child = new Node;
             child->value = help[i];
@@ -29,6 +32,8 @@ class Tree {
     std::vector<char> permutation(Node* root, std::vector<char>* character) {
         for (int i = 0; i < root->pointers.size(); i++) {
             character->push_back(root->pointers[i]->value);
+            permutation(root->pointers[i], character);
+            if (root->pointers[i]->pointers.empty()) return *character;
             permutation(root->pointers[i], character);
             if (character->size() != 1) {
                 vectV.push_back(*character);
@@ -54,4 +59,4 @@ class Tree {
         return vectV[i];
     }
 };
-#endif  // INCLUDE_TREE_H_
+#endif // INCLUDE_TREE_H_
